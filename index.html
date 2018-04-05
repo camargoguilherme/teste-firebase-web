@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Título da página</title>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/firebase.js"></script>
+    <script type="text/javascript">
+    	
+		firebase.initializeApp(getConfig());
+
+		// Get a reference to the database service
+		var database = firebase.database();
+
+		var users = firebase.database().ref('users');
+		users.once('value', function(snapshot) {
+			snapshot.forEach(function(childSnapshot) {
+			    console.log(childSnapshot.val());			    // ...
+			});
+
+			
+	    });
+
+    </script>
+
+
+  </head>
+  <body>
+    <div>
+    	<h1 id="title">Titulo Teste</h1>
+    	<p id="text">Parágrafo Teste</p>
+    </div>
+  </body>
+</html>
