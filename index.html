@@ -9,17 +9,20 @@
     	
 		firebase.initializeApp(getConfig());
 
-		// Get a reference to the database service
+		// Cria uma instancia da base de dados
 		var database = firebase.database();
 
+    //Cria uma referencia para o nó 'users'
 		var users = firebase.database().ref('users');
+
+    //
 		users.once('value', function(snapshot) {
 			snapshot.forEach(function(childSnapshot) {
 			    console.log(childSnapshot.val());			    // ...
 			});
 
 			
-	    });
+	   });
 
     </script>
 
