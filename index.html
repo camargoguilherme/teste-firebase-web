@@ -7,6 +7,7 @@
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<!--Import materialize.css-->
 		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+		<link type="text/css" rel="stylesheet" href="css/style.css"  media="screen,projection"/>
 
 		<!--Let browser know website is optimized for mobile-->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -15,7 +16,15 @@
 		<div id="users">
 			<h1 id="title">Titulo Teste</h1>
 		</div>
-
+		<section id="float" class="default-section">
+			<div id="form" class="float-left">
+				<h1>Enviar dados para o Firebase</h1>
+				
+			</div>
+			<div id="data" class="float-right">
+				<h1>Dados do Firebase</h1>
+			</div>
+		</section>
 
 
 		<script type="text/javascript" src="js/materialize.min.js"></script>
@@ -24,32 +33,14 @@
 		<script type="text/javascript" src="js/firebase.js"></script>
 		<script type="text/javascript">
 			$( document ).ready(function() {
-			
-				firebase.initializeApp(getConfig());
+				// Inicializa as configuraçoes do Firebase
+				firebase.initializeApp(getConfig())
 
 				// Cria uma instancia da base de dados
 				var database = firebase.database();
 
-				//Cria uma referencia para o nó 'users'
-				var users = firebase.database().ref('users');
-
-				//
-				users.once('value', function(snapshot) {
-					snapshot.forEach(function(childSnapshot) {
-					    //console.log(childSnapshot.val());
-
-					    //var key = document.getElementById(childSnapshot.key);
-					    //var value = document.getElementById('value');
-					    var para = document.createElement("P");                       // Create a <p> node
-						var t = document.createTextNode(childSnapshot.val().name);      // Create a text node
-						para.appendChild(t); 
-						document.getElementById("users").appendChild(para);
-					    //'<p id="'+childSnapshot.val()+'">'+childSnapshot.val()+'</p>';
-					    
-					});
-			   	});	
+				_initFirebase(database);
 			});
-
 			
 		</script>
 	</body>
