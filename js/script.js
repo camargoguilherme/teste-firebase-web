@@ -7,7 +7,7 @@ function getConfig(){
 	    databaseURL: "https://teste-a4869.firebaseio.com",
 	    projectId: "teste-a4869",
 	    storageBucket: "teste-a4869.appspot.com",
-	    messagingSenderId: "107417150791
+	    messagingSenderId: "107417150791"
 	};
 	return config;
 };
