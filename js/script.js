@@ -15,7 +15,7 @@ function getConfig(){
 function writeUserData(database, name, email) {
 	
 	// Cria uma referencia para o nó 'users'
-	var users = database.ref('users');
+	var users = database.ref('users/');
 	userId = users.numChildren() + 1;
   	users.ref('teste/' + userId).set({
 	    username: name,
@@ -26,7 +26,7 @@ function writeUserData(database, name, email) {
 function _initFirebase(database){
 
 	// Cria uma referencia para o nó 'users'
-	var users = database.ref('users');
+	var users = database.ref("users");
 
 	// Retorna os 3 primeiros usuarios
 	//var users = database.ref('users').limitToFirst(3);
